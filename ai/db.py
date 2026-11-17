@@ -1,0 +1,91 @@
+import os
+
+import psycopg
+from dotenv import load_dotenv
+from psycopg.types.json import Jsonb
+
+from clean import clean_hn, clean_remotive, latest_raw_file, load_json, remove_duplicates
+
+load_dotenv()
+DATABASE_URL = os.environ["DATABASE_URL"]
+
+CREATE_TABLES = """
+CREATE TABLE IF NOT EXISTS raw_postings (
+    id          TEXT PRIMARY KEY,
+    source      TEXT NOT NULL,
+    fetched_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    data        JSONB NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS postings (
+    id          TEXT PRIMARY KEY,
+    source      TEXT NOT NULL,
+    url         TEXT NOT NULL,
+    title       TEXT,
+    company     TEXT,
+    location    TEXT,
+    remote      BOOLEAN,
+    posted_at   TIMESTAMPTZ,
+    description TEXT,
+    skills      TEXT[] NOT NULL DEFAULT '{}',
+    seniority   TEXT,
+    salary_min  NUMERIC,
+    salary_max  NUMERIC,
+    currency    TEXT
+);
+"""
+
+INSERT_RAW = """
+INSERT INTO raw_postings (id, source, data)
+VALUES (%s, %s, %s)
+ON CONFLICT (id) DO NOTHING
+"""
+
+INSERT_POSTING = """
+INSERT INTO postings (id, source, url, title, company, location, remote, posted_at,
+                      description, skills, seniority, salary_min, salary_max, currency)
+VALUES (%(id)s, %(source)s, %(url)s, %(title)s, %(company)s, %(location)s, %(remote)s,
+        %(posted_at)s, %(description)s, %(skills)s, %(seniority)s, %(salary_min)s,
+        %(salary_max)s, %(currency)s)
+ON CONFLICT (id) DO NOTHING
+"""
+
+
+def create_tables(conn) -> None:
+    """Create the tables if they don't exist yet."""
+    conn.execute(CREATE_TABLES)
+
+
+def insert_raw(conn, source: str, items: list[dict]) -> int:
+    """Store raw items untouched; skip ones already stored. Return how many were new."""
+    added = 0
+    for item in items:
+        result = conn.execute(INSERT_RAW, (f"{source}:{item['id']}", source, Jsonb(item)))
+        added = added + result.rowcount
+    return added
+
+
+def insert_postings(conn, postings: list[dict]) -> int:
+    """Store clean postings; skip ones already stored. Return how many were new."""
+    added = 0
+    for posting in postings:
+        result = conn.execute(INSERT_POSTING, posting)
+        added = added + result.rowcount
+    return added
+
+
+if __name__ == "__main__":
+    remotive_raw = load_json(latest_raw_file("remotive"))
+    hn_raw = load_json(latest_raw_file("hackernews"))
+
+    postings = [clean_remotive(job) for job in remotive_raw] + [clean_hn(post) for post in hn_raw]
+    postings = remove_duplicates(postings)
+
+    with psycopg.connect(DATABASE_URL) as conn:
+        create_tables(conn)
+        raw_added = insert_raw(conn, "remotive", remotive_raw) + insert_raw(conn, "hackernews", hn_raw)
+        added = insert_postings(conn, postings)
+        total = conn.execute("SELECT count(*) FROM postings").fetchone()[0]
+
+    print(f"Raw: {raw_added} new")
+    print(f"Postings: {added} new, {total} total in the database")
