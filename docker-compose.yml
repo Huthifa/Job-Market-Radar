@@ -22,7 +22,7 @@
 
   api:
     build:
-      context: .
+      context: ./api
       dockerfile: Dockerfile
     container_name: fastapi-api
     restart: unless-stopped
@@ -33,13 +33,13 @@
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     volumes:
-      - ./api:/app/api
-    command: fastapi dev api/main.py --host 0.0.0.0 --port 8000
+      - ./api:/app
+    command: fastapi dev main.py --host 0.0.0.0 --port 8000
     depends_on:
       db:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthhealth')"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -47,10 +47,7 @@
 
   fetcher:
     image: ${FETCHER_IMAGE:-alpine:latest}
-    # To build from a local folder instead of pulling an image, swap 'image:' for:
-    # build:
-    #   context: ./fetcher
-    #   dockerfile: Dockerfile
+
     container_name: fastapi-fetcher
     profiles:
       - ai
@@ -60,8 +57,7 @@
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       API_BASE_URL: http://api:8000
-    # Placeholder command so the slot stays up if tested with alpine:latest;
-    # remove this line once the real fetcher image has its own ENTRYPOINT/CMD.
+      
     command: ["sh", "-c", "echo 'Fetcher slot ready' && sleep infinity"]
     depends_on:
       db:
