@@ -1,10 +1,15 @@
 import os
 
 import psycopg
+from clean import (
+    clean_hn,
+    clean_remotive,
+    latest_raw_file,
+    load_json,
+    remove_duplicates,
+)
 from dotenv import load_dotenv
 from psycopg.types.json import Jsonb
-
-from clean import clean_hn, clean_remotive, latest_raw_file, load_json, remove_duplicates
 
 load_dotenv()
 DATABASE_URL = os.environ["DATABASE_URL"]
