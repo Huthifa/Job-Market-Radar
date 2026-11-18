@@ -7,3 +7,6 @@ secrets.py
 data/
 __pycache__/
 .ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
