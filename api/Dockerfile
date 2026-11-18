@@ -22,8 +22,8 @@ WORKDIR /app
 
 COPY --from=builder /opt/venv /opt/venv
 
-COPY ./api ./api
+COPY . .
 
 EXPOSE 8000
 
-CMD ["fastapi", "run", "api/main.py", "--port", "8000"]
+CMD ["fastapi", "run", "main.py", "--host", "0.0.0.0", "--port", "8000"]
