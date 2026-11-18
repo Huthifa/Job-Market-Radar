@@ -2,6 +2,9 @@
 config.json
 secrets.py
 *.key
-__pycache__/
-*.pyc
+
 .venv/
+data/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
