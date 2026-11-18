@@ -2,3 +2,6 @@
 config.json
 secrets.py
 *.key
+__pycache__/
+*.pyc
+.venv/
