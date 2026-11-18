@@ -1,0 +1,6 @@
+data/
+notebooks/
+__pycache__/
+.ipynb_checkpoints/
+requirements-dev.txt
+test_save.py
