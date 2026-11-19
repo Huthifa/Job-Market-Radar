@@ -1,0 +1,23 @@
+TASK:
+You will read one job posting. Fill in the fields below using ONLY what the posting says.
+
+RULES:
+- skills: list only technical skills this role needs (programming languages, tools, frameworks, cloud platforms), in lowercase. Do not include soft skills like "communication" or "teamwork".
+- seniority: choose one of intern, junior, mid, senior, lead, unknown. Use the level written in the job title or description ("Senior" means senior, "Staff" or "Principal" means lead). If no level is written, use unknown. Do not decide the level from years of experience alone.
+- remote: choose one of remote, hybrid, onsite, unknown. Use "remote" if working remotely is an option, "hybrid" if the job mixes office days and home days, "onsite" if it must be in the office, and "unknown" if the posting doesn't say.
+- salary_min and salary_max: whole numbers only ("170k" means 170000). For a range, use the lower number as salary_min and the higher as salary_max. For a single number, use it for both. If the posting says "X+" (like "110k+"), use X as salary_min and null as salary_max. If no salary is given, use null for both.
+- currency: a 3-letter code like USD, EUR or GBP. "$" with no country means USD. If there is no salary, use null.
+- salary_period: choose one of hour, month, year, unknown. Use the period written in the posting. A number with "k" and no other hint means year. If the pay is per task or per word, still fill in salary_min and salary_max, and use unknown for the period. If there is no salary amount, use null, even if the posting says "hourly".
+
+WATCH OUT FOR:
+- If the posting lists several roles, use ONLY the first role for every field. Ignore the skills of the other roles.
+- Only list skills the person in this role will use. Ignore technology that describes the company's own product or its customers.
+- If the posting is not a job ad (for example, a person describing themselves or looking for work), return an empty skills list and unknown or null for everything else.
+- General areas are not skills: do not list things like "full-stack", "seo", "ai tooling" or "http".
+- Ignore links and URLs. Use only the words of the posting itself.
+
+IMPORTANT:
+- Never guess or invent information. If something is not in the posting, use null or unknown. Empty is better than wrong.
+
+Job posting:
+{posting}

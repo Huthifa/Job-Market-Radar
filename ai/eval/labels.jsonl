@@ -26,5 +26,5 @@
 {"id": "hackernews:50340820", "skills": ["rust"], "seniority": "senior", "remote": "remote", "salary_min": 180000, "salary_max": 220000, "currency": "USD", "salary_period": "year"}
 {"id": "hackernews:50376253", "skills": ["go", "python", "kubernetes", "terraform", "opentofu", "istio", "vault", "lgtm", "opentelemetry"], "seniority": "lead", "remote": "hybrid", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
 {"id": "hackernews:50356544", "skills": ["java", "spring", "hibernate", "kubernetes", "helm"], "seniority": "mid", "remote": "onsite", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
-{"id": "hackernews:50370710", "skills": [], "seniority": "unknown", "remote": "unknown", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50370710", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
 {"id": "hackernews:50484305", "skills": ["react", "typescript", "python", "fastapi", "django", "tanstack"], "seniority": "senior", "remote": "hybrid", "salary_min": 160000, "salary_max": 200000, "currency": "USD", "salary_period": "year"}
