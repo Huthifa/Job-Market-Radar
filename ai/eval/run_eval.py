@@ -3,7 +3,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from skills import normalize_skills  # noqa: E402
+from skills import normalize_skills
 
 FIELDS = ["seniority", "remote", "salary_min", "salary_max", "currency", "salary_period"]
 

@@ -7,8 +7,7 @@ CLEAN_FILES = os.path.join("data", "clean", "postings_*.json")
 OUT_PATH = os.path.join("ai", "eval", "sample.jsonl")
 
 # 1. find the newest clean file
-newest = sorted(glob.glob(CLEAN_FILES))[-1]
-
+newest = max(glob.glob(CLEAN_FILES))
 # 2. load it
 with open(newest, encoding="utf-8") as f:
     postings = json.load(f)

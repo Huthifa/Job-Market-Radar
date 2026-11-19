@@ -3,13 +3,12 @@ import os
 import sys
 import time
 
-from skills import normalize_skills
 from dotenv import load_dotenv
 from google import genai
 from google.genai import errors
 from pydantic import ValidationError
-
 from schema import Extraction
+from skills import normalize_skills
 
 load_dotenv()
 
