@@ -16,6 +16,10 @@ def strip_html(text: str | None) -> str | None:
 
 def clean_remotive(job: dict) -> dict:
     """Turn one raw Remotive job into the shared posting shape."""
+    description = strip_html(job["description"]) or ""
+    if job["salary"]:
+        description = f"{description}\nSalary: {job['salary']}"
+
     return {
         "id": f"remotive:{job['id']}",
         "source": "remotive",
@@ -25,13 +29,14 @@ def clean_remotive(job: dict) -> dict:
         "location": job["candidate_required_location"] or None,
         "remote": True,
         "posted_at": job["publication_date"],
-        "description": strip_html(job["description"]),
+        "description": description,
         "skills": [],
         "seniority": None,
         "salary_min": None,
         "salary_max": None,
         "currency": None,
     }
+
 
 
 def parse_hn_header(text: str) -> dict:
