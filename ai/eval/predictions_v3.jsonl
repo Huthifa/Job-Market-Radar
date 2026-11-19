@@ -1,0 +1,30 @@
+{"id": "remotive:2091137", "skills": ["airflow", "aws", "azure", "gcp", "python", "snowflake", "sql"], "seniority": "senior", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "remotive:1749306", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": 20000, "salary_max": 35000, "currency": "USD", "salary_period": "year"}
+{"id": "remotive:2091171", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": 14, "salary_max": 20, "currency": "USD", "salary_period": "hour"}
+{"id": "remotive:2091158", "skills": ["c++", "docker", "git", "go", "java", "linux", "python", "rust", "typescript"], "seniority": "unknown", "remote": "remote", "salary_min": 1000, "salary_max": 1000, "currency": "USD", "salary_period": "unknown"}
+{"id": "hackernews:50341026", "skills": ["asic", "bash", "bitbake", "embedded linux", "fpga", "rust", "typescript", "yocto"], "seniority": "unknown", "remote": "onsite", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50382129", "skills": [], "seniority": "unknown", "remote": "unknown", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50339514", "skills": ["typescript"], "seniority": "unknown", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50361229", "skills": ["imu", "lidar", "python", "ros2", "uart"], "seniority": "unknown", "remote": "onsite", "salary_min": 150000, "salary_max": 200000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50382899", "skills": [], "seniority": "unknown", "remote": "unknown", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50349755", "skills": [], "seniority": "senior", "remote": "hybrid", "salary_min": 110000, "salary_max": null, "currency": "GBP", "salary_period": "year"}
+{"id": "hackernews:50339441", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50351981", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50345953", "skills": [], "seniority": "unknown", "remote": "onsite", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50338907", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50338830", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50339454", "skills": [], "seniority": "lead", "remote": "onsite", "salary_min": 175000, "salary_max": 300000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50340983", "skills": ["aws", "react", "react native"], "seniority": "unknown", "remote": "hybrid", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50341328", "skills": [], "seniority": "unknown", "remote": "remote", "salary_min": 130000, "salary_max": 130000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50349005", "skills": ["ai"], "seniority": "unknown", "remote": "onsite", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50352937", "skills": ["android", "ios"], "seniority": "lead", "remote": "remote", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50338822", "skills": ["azure", "azure ai services", "claude", "document intelligence", "github", "linux", "openai", "python", "sql", "sql server"], "seniority": "junior", "remote": "hybrid", "salary_min": 100000, "salary_max": 120000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50350417", "skills": [], "seniority": "unknown", "remote": "unknown", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50340820", "skills": ["rust"], "seniority": "senior", "remote": "remote", "salary_min": 180000, "salary_max": 220000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50376253", "skills": ["go", "istio", "kubernetes", "lgtm", "opentelemetry", "opentofu", "python", "terraform", "vault"], "seniority": "senior", "remote": "hybrid", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50356544", "skills": ["helm", "hibernate", "java", "kubernetes", "spring"], "seniority": "mid", "remote": "onsite", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50370710", "skills": [], "seniority": "unknown", "remote": "unknown", "salary_min": null, "salary_max": null, "currency": null, "salary_period": null}
+{"id": "hackernews:50484305", "skills": ["django", "fastapi", "python", "react", "tanstack", "typescript"], "seniority": "senior", "remote": "hybrid", "salary_min": 160000, "salary_max": 200000, "currency": "USD", "salary_period": "year"}
+{"id": "remotive:2069746", "skills": ["docker", "elasticsearch", "html", "huggingface", "javascript", "kubernetes", "langchain", "mysql", "postgresql", "rails", "react", "redis", "ruby", "stimulusjs", "tailwind"], "seniority": "lead", "remote": "remote", "salary_min": 170000, "salary_max": 200000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50340101", "skills": ["elixir", "go", "graphql", "llm", "python", "pytorch", "react", "react native", "xgboost"], "seniority": "lead", "remote": "remote", "salary_min": 200000, "salary_max": 250000, "currency": "USD", "salary_period": "year"}
+{"id": "hackernews:50461075", "skills": ["ai"], "seniority": "unknown", "remote": "onsite", "salary_min": 80000, "salary_max": 80000, "currency": "USD", "salary_period": "year"}
