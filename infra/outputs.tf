@@ -17,3 +17,11 @@ output "ecr_repository_urls" {
 output "raw_bucket" {
   value = aws_s3_bucket.raw.bucket
 }
+
+output "db_endpoint" {
+  value = aws_db_instance.main.address
+}
+
+output "db_secret_arn" {
+  value = aws_db_instance.main.master_user_secret[0].secret_arn
+}
