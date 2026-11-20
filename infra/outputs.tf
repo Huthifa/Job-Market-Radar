@@ -1,27 +1,27 @@
 output "vpc_id" {
-  value = aws_vpc.main.id
+  value = module.network.vpc_id
 }
 
 output "public_subnet_ids" {
-  value = [aws_subnet.public_a.id, aws_subnet.public_b.id]
+  value = module.network.public_subnet_ids
 }
 
 output "private_subnet_ids" {
-  value = [aws_subnet.private_a.id, aws_subnet.private_b.id]
-}
-
-output "ecr_repository_urls" {
-  value = { for name, repo in aws_ecr_repository.repo : name => repo.repository_url }
+  value = module.network.private_subnet_ids
 }
 
 output "raw_bucket" {
-  value = aws_s3_bucket.raw.bucket
+  value = module.data.raw_bucket
 }
 
 output "db_endpoint" {
-  value = aws_db_instance.main.address
+  value = module.data.db_endpoint
 }
 
 output "db_secret_arn" {
-  value = aws_db_instance.main.master_user_secret[0].secret_arn
+  value = module.data.db_secret_arn
+}
+
+output "ecr_repository_urls" {
+  value = module.registry.repository_urls
 }

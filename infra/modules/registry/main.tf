@@ -1,9 +1,5 @@
-locals {
-  repositories = ["api", "fetcher", "ai"]
-}
-
 resource "aws_ecr_repository" "repo" {
-  for_each = toset(local.repositories)
+  for_each = toset(var.repositories)
 
   name                 = "jmr-${each.key}"
   image_tag_mutability = "IMMUTABLE"

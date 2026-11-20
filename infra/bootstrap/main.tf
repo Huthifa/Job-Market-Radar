@@ -1,21 +1,21 @@
 terraform {
-    required_version = ">= 1.10"
-    required_providers {
-        aws = {
-            source = "hashicorp/aws"
-            version = "~> 6.0"
-        }
+  required_version = ">= 1.10"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
     }
+  }
 }
 
 provider "aws" {
-    region = "eu-north-1"
-    default_tags {
-        tags = {
-            project = "job-market-radar"
-            owner = "huthifa"
-        }
+  region = "eu-north-1"
+  default_tags {
+    tags = {
+      project = "job-market-radar"
+      owner   = "huthifa"
     }
+  }
 }
 
 data "aws_caller_identity" "current" {}
@@ -23,20 +23,20 @@ data "aws_caller_identity" "current" {}
 resource "aws_s3_bucket" "tfstate" {
   bucket = "jmr-tfstate-${data.aws_caller_identity.current.account_id}"
 
-lifecycle {
+  lifecycle {
     prevent_destroy = true
   }
 }
 
 resource "aws_s3_bucket_versioning" "tfstate" {
-    bucket = aws_s3_bucket.tfstate.id
-    versioning_configuration {
-        status = "Enabled"
-    }
+  bucket = aws_s3_bucket.tfstate.id
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "tfstate" {
-    bucket                = aws_s3_bucket.tfstate.id
+  bucket                  = aws_s3_bucket.tfstate.id
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
