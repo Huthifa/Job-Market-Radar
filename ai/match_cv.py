@@ -63,7 +63,7 @@ def score_job(
     vector_score is the real similarity (shown to the user).
     stretched_vector is the same thing rescaled to 0-1 among the candidates (used for ranking).
     """
-    job_skill_set = set(job_skills)
+    job_skill_set = set(normalize_skills(job_skills))
     matching = sorted(job_skill_set & cv_skill_set)
     missing = sorted(job_skill_set - cv_skill_set)
     # The honest share, as the contract defines it (shown to the user).
